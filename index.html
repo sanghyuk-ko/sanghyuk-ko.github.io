@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>고상혁 — Proof over Promise</title>
+  <meta name="description" content="규칙이 지켜지는 금융을 코드로 만드는 개발자 고상혁의 포트폴리오. RWA 스마트 컨트랙트, 제재 명단 스크리닝, 금융 백엔드.">
+  <meta name="theme-color" content="#050505">
+  <meta property="og:title" content="고상혁 — Proof over Promise">
+  <meta property="og:description" content="RWA 스마트 컨트랙트와 제재 명단 스크리닝을 만든 블록체인 · 백엔드 개발자 포트폴리오">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23050505'/%3E%3Cellipse cx='14' cy='13' rx='9' ry='6' transform='rotate(-35 14 13)' fill='none' stroke='%23F37321' stroke-width='2.4'/%3E%3Ccircle cx='18' cy='19' r='6' fill='none' stroke='%23F89B6C' stroke-width='2'/%3E%3C/svg%3E">
+  <script>
+    document.documentElement.classList.add('js');
+    try { if (sessionStorage.getItem('pf-wipe')) document.documentElement.classList.add('pf-entering'); } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#work">프로젝트로 건너뛰기</a>
+
+  <!-- Intro -->
+  <div class="intro">
+    <canvas class="intro__canvas" aria-hidden="true"></canvas>
+    <button class="intro__skip" type="button">SKIP</button>
+    <div class="intro__meta" aria-hidden="true"><b>SANGHYUK KO</b><br>PORTFOLIO · 2026<br>FOR HANWHA FINANCE</div>
+    <div class="intro__count" aria-hidden="true">000</div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="처음으로">
+      <img class="brand__rings" src="assets/hanwha-rings.svg" alt="" width="30" height="28">
+      <span class="brand__name">SANGHYUK KO<small>× HANWHA FINANCE</small></span>
+    </a>
+    <nav class="pill-nav" aria-label="주요 섹션">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="#contact" data-magnetic=".2"><span>Contact</span><span class="header-cta__icon" aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <h1 class="sr-only" id="heroTitle">고상혁 — Proof over Promise. 약속보다 증명으로, 규칙이 지켜지는 금융을 코드로 만듭니다.</h1>
+      <div class="hero__curtain" aria-hidden="true"></div>
+      <img class="hero__rings" src="assets/hanwha-rings.svg" alt="" aria-hidden="true">
+      <div class="hero__floor" aria-hidden="true"></div>
+
+      <svg id="heroSvg" class="hero__svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset=".55" stop-color="#d6d6d4"/>
+            <stop offset="1" stop-color="#6a6a68"/>
+          </linearGradient>
+          <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.1" fill="#000" fill-opacity=".2"/>
+          </pattern>
+          <filter id="goo" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+            <feGaussianBlur id="gooBlur" in="SourceGraphic" stdDeviation="20"/>
+            <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -11"/>
+          </filter>
+          <mask id="revealMask" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+            <g id="blobs" filter="url(#goo)"></g>
+          </mask>
+        </defs>
+        <g class="surface"></g>
+        <g class="beneath" mask="url(#revealMask)">
+          <rect width="100%" height="100%" fill="#F37321"/>
+          <rect width="100%" height="100%" fill="url(#dots)"/>
+          <g class="beneath-content"></g>
+        </g>
+      </svg>
+
+      <p class="hero__eyebrow" data-hero-in style="--d:.15s">2026 한화금융 신입공채 · 신사업 블록체인</p>
+      <div class="hero__bottom">
+        <div class="hero__who" data-hero-in style="--d:.5s">
+          <strong>고상혁</strong>Blockchain · Backend Developer
+          <span class="mono">Korea Univ. Computer Science</span>
+        </div>
+        <div class="hero__hint" data-hero-in style="--d:.8s" aria-hidden="true"><span class="hero__mouse"></span>Move · Scroll</div>
+        <p class="hero__lede" data-hero-in style="--d:.62s">약속보다 증명으로.<br>규칙이 지켜지는 금융을<br>코드로 만듭니다.</p>
+      </div>
+    </section>
+
+    <!-- Pinned scene -->
+    <section class="scene" id="about" aria-label="About">
+      <div class="scene__sticky">
+        <canvas class="scene__canvas" aria-hidden="true"></canvas>
+        <div class="scene__shade" aria-hidden="true"></div>
+        <div class="scene__frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="hud" aria-hidden="true">
+          <div class="hud__tl"><span class="hud__live">LIVE</span> · <b>SANGHYUK.KO</b><br>MODULE:// PROOF_ENGINE<br>FORMATION=<b data-hud="form">RINGS</b></div>
+          <div class="hud__tr">BLOCK <b data-hud="block">#000000</b><br>HASH <b data-hud="hash">0x00000000</b><br>NETWORK · HANWHA_FIN</div>
+          <div class="hud__bl"><span>SCROLL</span><span class="hud__bar"><i></i></span></div>
+          <div class="hud__counter"><small>CHAPTER</small><div class="hud__num">01</div></div>
+        </div>
+
+        <article class="chapter" data-range="0,.2">
+          <p class="chapter__eyebrow">01 — Who</p>
+          <h2 class="chapter__title">금융의 <em>규칙</em>을<br>코드로 옮기는 개발자</h2>
+          <p class="chapter__body">미술품 ABS의 <strong>양도 · 권리 · 정산 규칙</strong>을 스마트 컨트랙트로 옮겼고, VC 실무 현장에서 <strong>제재 명단 스크리닝</strong>을 직접 만들었습니다. 규칙이 코드로 지켜지고, 지켜졌다는 사실이 기록으로 남는 시스템을 만듭니다.</p>
+        </article>
+
+        <article class="chapter" data-range=".24,.46">
+          <p class="chapter__eyebrow">02 — How</p>
+          <h2 class="chapter__title">세 개의 고리로<br><em>일합니다</em></h2>
+          <ul class="principles">
+            <li class="principle" style="--c:#F37321">
+              <span class="principle__dot"></span>
+              <b>Discipline<span>검증부터</span></b>
+              <p>성공의 정의부터 씁니다. “종료 코드 0 그리고 result.json”, 오탐률은 실측 조건과 함께 남깁니다.</p>
+            </li>
+            <li class="principle" style="--c:#FBB584">
+              <span class="principle__dot"></span>
+              <b>Creative Thinking<span>대체하는 설계</span></b>
+              <p>흉내만 낼 수 있는 가격 오라클 대신, 2-of-3 합의와 문서 해시로 정산의 신뢰를 만들었습니다.</p>
+            </li>
+            <li class="principle" style="--c:#F89B6C">
+              <span class="principle__dot"></span>
+              <b>Sense of Purpose<span>현장의 문제</span></b>
+              <p>명단이 7일을 넘거나 출처가 빠지면 대사 자체를 막았습니다. 틀린 “통과”보다 명시적인 “불가”가 안전합니다.</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="chapter" data-range=".5,.7">
+          <p class="chapter__eyebrow">03 — Where</p>
+          <h2 class="chapter__title">블록체인 ×<br><em>컴플라이언스</em></h2>
+          <p class="chapter__body">토큰화된 금융에는 토큰만큼이나 <strong>KYC · AML과 검증 가능한 정산</strong>이 필요합니다. 컨트랙트로 보유 자격을 통제한 경험과 실무에서 제재 명단을 대사한 경험이 그 교차점에 있습니다.</p>
+          <div class="kw-list">
+            <span class="kw kw--o">RWA</span><span class="kw kw--o">KYC Allowlist</span><span class="kw kw--o">AML Screening</span>
+            <span class="kw">ERC-1155</span><span class="kw">Solidity · Foundry</span><span class="kw">EVM Signature</span>
+            <span class="kw">OFAC · UN · FATF</span><span class="kw">Spring Boot</span><span class="kw">TypeScript</span>
+          </div>
+        </article>
+
+        <article class="chapter" data-range=".74,1">
+          <p class="chapter__eyebrow">04 — Proof</p>
+          <h2 class="chapter__title">숫자로 남긴 <em>결과</em></h2>
+          <div class="stats">
+            <div class="stat"><div class="stat__v"><span data-count="0.27">0.27</span><small>%</small></div><div class="stat__l">제재 명단 스크리닝 오탐률<br>(기존 2.7%)</div></div>
+            <div class="stat"><div class="stat__v">−<span data-count="70">70</span><small>%</small></div><div class="stat__l">E2E 회귀 테스트<br>실행 시간</div></div>
+            <div class="stat"><div class="stat__v">&lt;<span data-count="1">1</span><small>ms</small></div><div class="stat__l">시세 조회 지연<br>(기존 150–300ms)</div></div>
+            <div class="stat"><div class="stat__v"><span data-count="42,861">42,861</span><small>건</small></div><div class="stat__l">대사하는<br>라이브 제재 명단</div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="marquee" data-marquee aria-hidden="true"><div class="marquee__track" id="marqueeTrack"></div></div>
+
+    <!-- Work -->
+    <section class="section wrap" id="work">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Selected Work · <span id="workCount">10</span></p>
+          <h2 class="section-title" data-reveal-lines>
+            <span class="line-mask"><span>규칙은 코드로,</span></span>
+            <span class="line-mask"><span><em>결과는 숫자로.</em></span></span>
+          </h2>
+        </div>
+        <p class="section-note" data-reveal>블록체인과 컴플라이언스 프로젝트를 앞에 두었습니다. 카드를 누르면 문제 · 설계 결정 · 구조 · 결과를 담은 상세 페이지로 이동합니다.</p>
+      </div>
+      <div class="work-grid" id="workGrid"></div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section wrap" id="experience">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Experience</p>
+          <h2 class="section-title" data-reveal-lines>
+            <span class="line-mask"><span>현장에서 쌓은</span></span>
+            <span class="line-mask"><span><em>증거들</em></span></span>
+          </h2>
+        </div>
+      </div>
+      <div class="xp-list" id="xpList"></div>
+      <div class="edu-grid" id="eduGrid"></div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact wrap" id="contact">
+      <img class="contact__rings" src="assets/hanwha-rings.svg" alt="" aria-hidden="true">
+      <p class="eyebrow">Contact</p>
+      <h2 class="contact__big" data-reveal-lines>
+        <span class="line-mask"><span>Let’s build</span></span>
+        <span class="line-mask"><span class="o">trust.</span></span>
+      </h2>
+      <p class="contact__lede" data-reveal>한화금융이 만들어 갈 디지털 자산 비즈니스에서, 규칙이 지켜지는 시스템을 함께 만들고 싶습니다.</p>
+      <div class="contact__links" data-reveal>
+        <a class="btn btn--primary" href="mailto:90sangko@naver.com" data-magnetic=".15">90sangko@naver.com <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="https://github.com/sanghyuk-ko" target="_blank" rel="noopener" data-magnetic=".15">GitHub <span class="mono">@sanghyuk-ko</span></a>
+        <a class="btn" href="#work" data-magnetic=".15">프로젝트 다시 보기</a>
+      </div>
+      <footer class="site-footer">
+        <span>© 2026 Sanghyuk Ko</span>
+        <span>Vanilla JS · Canvas · SVG</span>
+        <span>한화 심볼은 지원 목적으로만 사용했습니다</span>
+      </footer>
+    </section>
+  </main>
+
+  <a class="fab" href="#contact" aria-label="연락하기">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <defs><path id="fabPath" d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/></defs>
+      <text><textPath href="#fabPath">CONTACT · CONTACT · CONTACT · </textPath></text>
+    </svg>
+    <span class="fab__icon" aria-hidden="true">↗</span>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/home.js" defer></script>
+</body>
+</html>

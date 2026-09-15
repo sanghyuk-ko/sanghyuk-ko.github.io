@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>프로젝트 — 고상혁 포트폴리오</title>
+  <meta name="description" content="고상혁 포트폴리오 프로젝트 상세">
+  <meta name="theme-color" content="#050505">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23050505'/%3E%3Cellipse cx='14' cy='13' rx='9' ry='6' transform='rotate(-35 14 13)' fill='none' stroke='%23F37321' stroke-width='2.4'/%3E%3Ccircle cx='18' cy='19' r='6' fill='none' stroke='%23F89B6C' stroke-width='2'/%3E%3C/svg%3E">
+  <script>
+    document.documentElement.classList.add('js');
+    try { if (sessionStorage.getItem('pf-wipe')) document.documentElement.classList.add('pf-entering'); } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" data-transition="00|Home" aria-label="홈으로">
+      <img class="brand__rings" src="assets/hanwha-rings.svg" alt="" width="30" height="28">
+      <span class="brand__name">SANGHYUK KO<small>× HANWHA FINANCE</small></span>
+    </a>
+    <nav class="pill-nav" aria-label="주요 섹션">
+      <a href="index.html#about" data-transition="00|About">About</a>
+      <a href="index.html#work" class="is-active" data-transition="00|Work">Work</a>
+      <a href="index.html#experience" data-transition="00|Experience">Experience</a>
+      <a href="index.html#contact" data-transition="00|Contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="index.html#contact" data-transition="00|Contact"><span>Contact</span><span class="header-cta__icon" aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main"></main>
+
+  <noscript><p class="wrap" style="padding-top:140px">이 페이지는 JavaScript가 필요합니다. <a href="index.html">홈으로 돌아가기</a></p></noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/common.js" defer></script>
+  <script src="js/project.js" defer></script>
+</body>
+</html>
