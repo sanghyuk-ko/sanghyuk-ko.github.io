@@ -249,7 +249,7 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 /* ==========================================================================
    Scroll scene (pinned 3D rings)
    ========================================================================== */
-.scene { position: relative; height: 520vh; background: #030303; }
+.scene { position: relative; height: 720vh; background: #030303; }
 .scene__sticky { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 .scene__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .scene__shade {
@@ -278,14 +278,19 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 .hud__counter small { display: block; color: var(--orange); margin-bottom: 4px; }
 .hud__num { font: 200 clamp(72px, 10vw, 160px)/.8 var(--font-display); color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .38); letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
 
+/* Chapters live between the top HUD rows and the bottom scroll bar.
+   Auto margins centre the content there; if it is taller, it grows downward instead of into the HUD. */
 .chapter {
-  position: absolute; left: calc(var(--gutter) + 26px); top: 50%;
+  position: absolute; left: calc(var(--gutter) + 26px); top: 176px; bottom: 84px;
   width: min(560px, calc(100% - 2 * var(--gutter) - 52px));
-  transform: translateY(calc(-50% + var(--shift, 0px)));
+  display: flex; flex-direction: column;
+  transform: translateY(var(--shift, 0px));
   opacity: 0; visibility: hidden; will-change: opacity, transform;
 }
+.chapter > :first-child { margin-top: auto; }
+.chapter > :last-child { margin-bottom: auto; }
 .chapter__eyebrow { display: inline-flex; gap: 10px; align-items: center; font: 500 11.5px/1 var(--font-mono); letter-spacing: .16em; color: var(--orange); text-transform: uppercase; }
-.chapter__title { font-weight: 600; font-size: clamp(30px, 3.7vw, 54px); line-height: 1.2; letter-spacing: -.035em; margin: 18px 0 20px; text-wrap: balance; }
+.chapter__title { font-weight: 600; font-size: clamp(28px, min(3.7vw, 6.8vh), 54px); line-height: 1.2; letter-spacing: -.035em; margin: 18px 0 20px; text-wrap: balance; }
 .chapter__title em { font-style: normal; color: var(--orange); }
 .chapter__body { color: var(--text-2); font-size: clamp(15px, 1.1vw, 17px); margin: 0; max-width: 48ch; }
 .chapter__body strong { color: var(--text); font-weight: 600; }
@@ -313,8 +318,21 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 .stat__v small { font: 600 .38em var(--font-sans); color: var(--orange); margin-left: 4px; letter-spacing: 0; }
 .stat__l { color: var(--muted); font-size: 13px; margin-top: 10px; line-height: 1.45; }
 
+/* shorter desktop screens: only the active principle shows its description */
+@media (min-width: 861px) and (max-height: 880px) {
+  .principle p { max-height: 5em; overflow: hidden; transition: max-height .6s var(--ease), opacity .4s; }
+  .principle:not(.is-on) p { max-height: 0; opacity: 0; }
+}
+@media (min-width: 861px) and (max-height: 640px) {
+  .hud__tl, .hud__tr { display: none; }
+  .chapter { top: 96px; bottom: 72px; }
+  .chapter__title { margin: 12px 0 14px; }
+  .principles { margin-top: 16px; gap: 8px; }
+  .principle { padding: 11px 16px; }
+}
+
 @media (max-width: 860px) {
-  .scene { height: 460vh; }
+  .scene { height: 640vh; }
   .scene__shade { background: linear-gradient(180deg, rgba(3, 3, 3, .2) 0%, rgba(3, 3, 3, 0) 26%, rgba(3, 3, 3, .9) 56%, #030303 100%); }
   .scene__frame, .hud__tr { display: none; }
   .hud__tl { top: 84px; left: var(--gutter); }
@@ -322,7 +340,7 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
   .hud__counter { top: 76px; bottom: auto; right: var(--gutter); }
   .hud__counter small { display: none; }
   .hud__num { font-size: 56px; }
-  .chapter { left: var(--gutter); width: calc(100% - 2 * var(--gutter)); top: auto; bottom: 52px; transform: translateY(var(--shift, 0px)); }
+  .chapter { display: block; left: var(--gutter); width: calc(100% - 2 * var(--gutter)); top: auto; bottom: 52px; transform: translateY(var(--shift, 0px)); }
   .chapter__title { margin: 12px 0 12px; }
   .principles { margin-top: 16px; gap: 8px; }
   .principle { padding: 11px 14px; }

@@ -426,7 +426,8 @@
     const hud = key => scene.querySelector(`[data-hud="${key}"]`);
     const hudForm = hud('form'), hudBlock = hud('block'), hudHash = hud('hash');
     const FORMS = ['SCATTER', 'RINGS', 'GYROSCOPE', 'CHAIN', 'LEDGER'];
-    const KEYS = [[0, 0.15], [0.12, 1], [0.22, 1], [0.3, 2], [0.47, 2], [0.56, 3], [0.72, 3], [0.82, 4], [1, 4]];
+    // [progress, formation] — chapter 2 (gyroscope) gets the longest hold, one screen per principle
+    const KEYS = [[0, 0.15], [0.1, 1], [0.18, 1], [0.26, 2], [0.6, 2], [0.68, 3], [0.8, 3], [0.88, 4], [1, 4]];
     const stageAt = p => {
       for (let i = 1; i < KEYS.length; i++) {
         if (p <= KEYS[i][0]) {
