@@ -426,8 +426,11 @@
     const hud = key => scene.querySelector(`[data-hud="${key}"]`);
     const hudForm = hud('form'), hudBlock = hud('block'), hudHash = hud('hash');
     const FORMS = ['SCATTER', 'RINGS', 'GYROSCOPE', 'CHAIN', 'LEDGER'];
-    // [progress, formation] — each morph spans the gap between two chapters (see data-range)
-    const KEYS = [[0, 0.15], [0.07, 1], [0.1, 1], [0.19, 2], [0.44, 2], [0.53, 3], [0.71, 3], [0.8, 4], [1, 4]];
+    // [progress, formation] derived from the chapters' data-range, so text and shape can't drift apart:
+    // chapter i holds formation i + 1, and each morph spans exactly the gap between two chapters.
+    const KEYS = [[0, 1]];
+    for (let i = 0; i < ranges.length - 1; i++) KEYS.push([ranges[i][1], i + 1], [ranges[i + 1][0], i + 2]);
+    KEYS.push([1, ranges.length]);
     const stageAt = p => {
       for (let i = 1; i < KEYS.length; i++) {
         if (p <= KEYS[i][0]) {
@@ -449,7 +452,8 @@
       const r = scene.getBoundingClientRect();
       const total = r.height - innerHeight;
       const p = total > 0 ? clamp01(-r.top / total) : 0;
-      field.stage = stageAt(p);
+      // rings assemble while the scene slides in under the hero, so they are complete when chapter 1 pins
+      field.stage = r.top > 0 ? 0.15 + 0.85 * ease(clamp01(1 - r.top / innerHeight)) : stageAt(p);
 
       let active = 0;
       chapters.forEach((ch, i) => {
