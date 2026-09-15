@@ -426,8 +426,8 @@
     const hud = key => scene.querySelector(`[data-hud="${key}"]`);
     const hudForm = hud('form'), hudBlock = hud('block'), hudHash = hud('hash');
     const FORMS = ['SCATTER', 'RINGS', 'GYROSCOPE', 'CHAIN', 'LEDGER'];
-    // [progress, formation] — chapter 2 (gyroscope) gets the longest hold, one screen per principle
-    const KEYS = [[0, 0.15], [0.1, 1], [0.18, 1], [0.26, 2], [0.6, 2], [0.68, 3], [0.8, 3], [0.88, 4], [1, 4]];
+    // [progress, formation] — each morph spans the gap between two chapters (see data-range)
+    const KEYS = [[0, 0.15], [0.07, 1], [0.1, 1], [0.19, 2], [0.44, 2], [0.53, 3], [0.71, 3], [0.8, 4], [1, 4]];
     const stageAt = p => {
       for (let i = 1; i < KEYS.length; i++) {
         if (p <= KEYS[i][0]) {
@@ -443,7 +443,7 @@
       return (h >>> 0).toString(16).padStart(8, '0');
     };
     const counted = new Set();
-    const FADE = 0.035;
+    const smooth = t => t * t * (3 - 2 * t);
 
     function update() {
       const r = scene.getBoundingClientRect();
@@ -454,13 +454,16 @@
       let active = 0;
       chapters.forEach((ch, i) => {
         const [a, b] = ranges[i];
+        // the gap between two chapters is split: first half fades the old one out, second half fades the new one in
+        const fadeIn = i > 0 ? (a - ranges[i - 1][1]) / 2 : 0;
+        const fadeOut = i < chapters.length - 1 ? (ranges[i + 1][0] - b) / 2 : 0;
         let o = 1, dir = 0;
-        if (p < a) { o = i === 0 ? 1 : 1 - (a - p) / FADE; dir = 1; }
-        else if (p > b) { o = i === chapters.length - 1 ? 1 : 1 - (p - b) / FADE; dir = -1; }
-        o = clamp01(o);
+        if (p < a) { o = fadeIn > 0 ? 1 - (a - p) / fadeIn : 1; dir = 1; }
+        else if (p > b) { o = fadeOut > 0 ? 1 - (p - b) / fadeOut : 1; dir = -1; }
+        o = smooth(clamp01(o));
         ch.style.opacity = o.toFixed(3);
         ch.style.visibility = o < 0.01 ? 'hidden' : 'visible';
-        ch.style.setProperty('--shift', `${((1 - o) * 36 * dir).toFixed(1)}px`);
+        ch.style.setProperty('--shift', `${((1 - o) * 48 * dir).toFixed(1)}px`);
         if (o > 0.5) active = i;
         if (o > 0.6 && !counted.has(i)) {
           counted.add(i);
