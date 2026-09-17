@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <!-- bump ?v= whenever css/js change, so a cached page never mixes old and new files -->
-  <link rel="stylesheet" href="css/style.css?v=2026091703">
+  <link rel="stylesheet" href="css/style.css?v=2026091704">
 </head>
 <body>
   <a class="skip-link" href="#work">프로젝트로 건너뛰기</a>
@@ -108,7 +108,7 @@
         <article class="chapter" data-range="0,.11">
           <p class="chapter__eyebrow">01 — Who</p>
           <h2 class="chapter__title">금융의 <em>규칙</em>을<br>코드로 옮기는 개발자</h2>
-          <p class="chapter__body">미술품 ABS의 <strong>양도 · 권리 · 정산 규칙</strong>을 스마트 컨트랙트로 옮겼고, VC 실무 현장에서 <strong>제재 명단 스크리닝</strong>을 직접 만들었습니다. 규칙이 코드로 지켜지고, 지켜졌다는 사실이 기록으로 남는 시스템을 만듭니다.</p>
+          <p class="chapter__body">규칙이 코드로 지켜지고, 지켜졌다는 사실이 기록으로 남는 시스템을 만듭니다. <strong>RWA 스마트 컨트랙트</strong>와 <strong>제재 명단 스크리닝</strong>이 그 예입니다.</p>
         </article>
 
         <article class="chapter" data-range=".18,.45">
@@ -118,17 +118,17 @@
             <li class="principle" style="--c:#F37321">
               <span class="principle__dot"></span>
               <b>Discipline<span>검증부터</span></b>
-              <p>성공의 정의부터 씁니다. “종료 코드 0 그리고 result.json”, 오탐률은 실측 조건과 함께 남깁니다.</p>
+              <p>무엇이 성공인지부터 정하고, 그 기준으로 확인합니다.</p>
             </li>
             <li class="principle" style="--c:#FBB584">
               <span class="principle__dot"></span>
               <b>Creative Thinking<span>대체하는 설계</span></b>
-              <p>흉내만 낼 수 있는 가격 오라클 대신, 2-of-3 합의와 문서 해시로 정산의 신뢰를 만들었습니다.</p>
+              <p>흉내만 낼 수 있는 부분은, 검증할 수 있는 방식으로 바꿉니다.</p>
             </li>
             <li class="principle" style="--c:#F89B6C">
               <span class="principle__dot"></span>
               <b>Sense of Purpose<span>현장의 문제</span></b>
-              <p>명단이 7일을 넘거나 출처가 빠지면 대사 자체를 막았습니다. 틀린 “통과”보다 명시적인 “불가”가 안전합니다.</p>
+              <p>틀린 “통과”보다 명시적인 “불가”가 안전하다고 봅니다.</p>
             </li>
           </ul>
         </article>
@@ -136,23 +136,21 @@
         <article class="chapter" data-range=".52,.72">
           <p class="chapter__eyebrow">03 — Where</p>
           <h2 class="chapter__title">블록체인 ×<br><em>컴플라이언스</em></h2>
-          <p class="chapter__body">토큰화된 금융에는 토큰만큼이나 <strong>KYC · AML과 검증 가능한 정산</strong>이 필요합니다. 컨트랙트로 보유 자격을 통제한 경험과 실무에서 제재 명단을 대사한 경험이 그 교차점에 있습니다.</p>
+          <p class="chapter__body">토큰화된 금융에는 토큰만큼이나 <strong>KYC · AML과 검증 가능한 정산</strong>이 필요합니다. 제 경험은 그 교차점에 있습니다.</p>
           <div class="kw-list">
-            <span class="kw kw--o">RWA</span><span class="kw kw--o">KYC Allowlist</span><span class="kw kw--o">AML Screening</span>
-            <span class="kw">ERC-1155</span><span class="kw">Solidity · Foundry</span><span class="kw">EVM Signature</span>
-            <span class="kw">OFAC · UN · FATF</span><span class="kw">Spring Boot</span><span class="kw">TypeScript</span>
+            <span class="kw kw--o">RWA</span><span class="kw kw--o">KYC · AML</span>
+            <span class="kw">Smart Contract</span><span class="kw">EVM Signature</span><span class="kw">Backend</span>
           </div>
         </article>
 
         <article class="chapter" data-range=".79,1">
           <p class="chapter__eyebrow">04 — Proof</p>
-          <h2 class="chapter__title">숫자로 남긴 <em>결과</em></h2>
-          <div class="stats">
-            <div class="stat"><div class="stat__v"><span data-count="0.27">0.27</span><small>%</small></div><div class="stat__l">제재 명단 스크리닝 오탐률<br>(기존 2.7%)</div></div>
-            <div class="stat"><div class="stat__v">−<span data-count="70">70</span><small>%</small></div><div class="stat__l">E2E 회귀 테스트<br>실행 시간</div></div>
-            <div class="stat"><div class="stat__v">&lt;<span data-count="1">1</span><small>ms</small></div><div class="stat__l">시세 조회 지연<br>(기존 150–300ms)</div></div>
-            <div class="stat"><div class="stat__v"><span data-count="99.7">99.7</span><small>%</small></div><div class="stat__l">남한식 표기 변형 재현율<br>(기존 36.0%)</div></div>
-          </div>
+          <h2 class="chapter__title">문제를 <em>구조</em>로 풉니다</h2>
+          <ol class="solves">
+            <li><span>분쟁이 생기는 거래</span><i aria-hidden="true">→</i><b>규칙을 컨트랙트로 강제</b></li>
+            <li><span>잘못 걸리고 놓치는 대사</span><i aria-hidden="true">→</i><b>이름 대신 증거로 판단</b></li>
+            <li><span>오래 붙잡히는 요청</span><i aria-hidden="true">→</i><b>접수와 실행을 분리</b></li>
+          </ol>
         </article>
       </div>
     </section>
@@ -166,10 +164,10 @@
           <p class="eyebrow">Selected Work · <span id="workCount">06</span></p>
           <h2 class="section-title" data-reveal-lines>
             <span class="line-mask"><span>규칙은 코드로,</span></span>
-            <span class="line-mask"><span><em>결과는 숫자로.</em></span></span>
+            <span class="line-mask"><span><em>문제는 구조로.</em></span></span>
           </h2>
         </div>
-        <p class="section-note" data-reveal>블록체인 · 컴플라이언스 · 금융 백엔드를 중심으로 고른 대표 프로젝트입니다. 카드를 누르면 문제 · 설계 결정 · 구조 · 결과를 담은 상세 페이지로 이동합니다.</p>
+        <p class="section-note" data-reveal>블록체인 · 컴플라이언스 · 금융 백엔드 중심의 대표 프로젝트입니다. 카드를 누르면 문제와 해결 방향을 볼 수 있습니다.</p>
       </div>
       <div class="work-grid" id="workGrid"></div>
 
@@ -228,8 +226,8 @@
   </a>
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-  <script src="js/data.js?v=2026091703" defer></script>
-  <script src="js/common.js?v=2026091703" defer></script>
-  <script src="js/home.js?v=2026091703" defer></script>
+  <script src="js/data.js?v=2026091704" defer></script>
+  <script src="js/common.js?v=2026091704" defer></script>
+  <script src="js/home.js?v=2026091704" defer></script>
 </body>
 </html>

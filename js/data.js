@@ -13,13 +13,13 @@ window.PORTFOLIO = {
     linesMobile: ['PROOF', 'OVER', 'PROMISE'],
     evidence: [
       '_update() → allowlist.isAllowed(to) || revert',
-      'oracle 2 of 3 · amount && docHash must match',
-      'senior 6% → mezzanine 9% → equity residual',
-      'false positive 2.7% → 0.27%',
+      'approvals >= required → transition',
+      'amount && docHash must match → record',
       'verifyMessage(msg, sig) == addr → delete nonce',
-      'quote latency 150–300ms → <1ms',
-      'e2e runtime −70% · license −$2,000 / yr',
-      'sanction list age > 7d → screening blocked',
+      'a name alone is not evidence',
+      'list incomplete || stale → blocked',
+      'accept → job folder → result file',
+      'measure → prove → migrate',
     ],
   },
 
@@ -281,7 +281,7 @@ window.PORTFOLIO = {
       role: '설계 · 구현 · 제품 연동',
       team: '시장개발TFT',
       stack: ['Node · TypeScript', 'Fastify', 'SQLite', 'Docker'],
-      oneLiner: '50분짜리 작업을 요청에 붙잡아 두던 구조를, 여러 제품이 함께 쓰는 비동기 작업 서버로 바꿨습니다.',
+      oneLiner: '긴 작업을 요청에 붙잡아 두던 구조를, 여러 제품이 함께 쓰는 비동기 작업 서버로 바꿨습니다.',
       summary: '문서를 설명 영상으로 만드는 파이프라인을 여러 제품이 쓰는 서버로 옮겼습니다. **작업 계약을 먼저 정하고**, 설계부터 제품 연동까지 맡았습니다.',
       snapshot: {
         problem: '영상 한 편에 최대 50분이 걸리는데 제품은 요청을 30분까지 붙잡았고, 작업 공간을 공유해 다른 편의 화면과 나레이션이 오류 없이 섞일 수 있었습니다.',
@@ -471,7 +471,7 @@ window.PORTFOLIO = {
       date: '2026.07 — 2026.09',
       org: '똑똑',
       role: 'TA · 현장실습',
-      desc: '회귀 테스트를 Playwright로 옮겨 **실행 시간 70% 단축**, **라이선스 연 $2,000 절감**.',
+      desc: '회귀 테스트를 분석부터 시작해 Playwright로 옮기고, **실행 시간과 라이선스 비용**을 줄였습니다.',
     },
     {
       date: '2026.02',

@@ -271,13 +271,13 @@
       <path class="flow" d="M136 176 C196 176 196 194 252 194" style="animation-delay:-.9s"/>
       <rect class="box" x="252" y="44" width="116" height="44" rx="10"/>
       <rect class="grow" x="252" y="44" width="116" height="44" rx="10" fill="${O}" fill-opacity=".9" style="--gd:.3s"/>
-      <text class="t-d" x="264" y="70">SENIOR</text><text class="t-d" x="356" y="70" text-anchor="end">6%</text>
+      <text class="t-d" x="264" y="70">SENIOR</text>
       <rect class="box" x="252" y="108" width="116" height="44" rx="10"/>
       <rect class="grow" x="252" y="108" width="76" height="44" rx="10" fill="${O}" fill-opacity=".5" style="--gd:.6s"/>
-      <text class="t-w" x="264" y="134">MEZZANINE</text><text x="356" y="134" text-anchor="end">9%</text>
+      <text class="t-w" x="264" y="134">MEZZANINE</text>
       <rect class="box" x="252" y="172" width="116" height="44" rx="10"/>
       <rect class="grow" x="252" y="172" width="34" height="44" rx="10" fill="${O}" fill-opacity=".28" style="--gd:.9s"/>
-      <text class="t-w" x="264" y="198">EQUITY</text><text x="356" y="198" text-anchor="end">REST</text>
+      <text class="t-w" x="264" y="198">EQUITY</text>
       <text x="40" y="244">WATERFALL</text><text class="t-o" x="368" y="244" text-anchor="end">2-OF-3 ORACLE</text>`,
 
     screening: () => {
@@ -293,16 +293,16 @@
             ${hit ? `<circle class="pulse" cx="30" cy="${y + 14}" r="3" fill="${O}"/>` : ''}`;
         }).join('') +
         `<rect class="scan" x="40" y="44" width="320" height="1.5" fill="${O}" opacity=".55"/>
-         <text x="40" y="236">FALSE POSITIVE</text><text class="t-o" x="360" y="236" text-anchor="end">2.7% → 0.27%</text>`;
+         <text x="40" y="236">EVIDENCE</text><text class="t-o" x="360" y="236" text-anchor="end">NAME · BIRTH · ID</text>`;
     },
 
     latency: () => `
-      <text x="40" y="30">QUOTE LATENCY</text><text class="t-o" x="360" y="30" text-anchor="end">&lt;1ms</text>
+      <text x="40" y="30">QUOTE LATENCY</text><text class="t-o" x="360" y="30" text-anchor="end">CACHED</text>
       <line class="ln" x1="40" y1="84" x2="360" y2="84" stroke-dasharray="2 5"/><line class="ln" x1="40" y1="148" x2="360" y2="148" stroke-dasharray="2 5"/>
       <line class="ln" x1="40" y1="212" x2="360" y2="212"/>
-      <text x="40" y="76">300ms</text><text x="40" y="140">150ms</text>
+      
       <line x1="238" y1="48" x2="238" y2="212" stroke="rgba(243,115,33,.45)" stroke-dasharray="2 4"/>
-      <text class="t-o" x="246" y="60">CACHE 1s</text>
+      <text class="t-o" x="246" y="60">CACHE</text>
       <path class="ln-o draw" pathLength="1" d="M40 110 L62 132 L84 96 L106 124 L128 90 L150 118 L172 100 L194 136 L216 98 L234 116 L246 208 L360 208"/>
       <circle class="pulse" cx="246" cy="208" r="4" fill="${O}"/>
       <text x="40" y="240">@Scheduled · AtomicReference</text>`,
@@ -314,7 +314,7 @@
         nodes.map(([x, y, l, dy], i) => `<circle cx="${x}" cy="${y}" r="8" fill="${i === 4 ? O : '#0f0f10'}" stroke="${O}" stroke-width="1.4"/>
           <text class="${i === 4 ? 't-o' : 't-w'}" x="${x}" y="${y + dy}" text-anchor="middle">${l}</text>`).join('') +
         `<circle r="4.5" fill="#fff"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#pp${u}"/></animateMotion></circle>
-         <text x="40" y="244">SSE STREAM</text><text class="t-o" x="360" y="244" text-anchor="end">≥ 2s / STAGE</text>`;
+         <text x="40" y="244">SSE STREAM</text><text class="t-o" x="360" y="244" text-anchor="end">STATUS QUEUE</text>`;
     },
 
     accounts: () => `
@@ -333,14 +333,14 @@
       <text x="200" y="232" text-anchor="middle">← CALLBACK · ROLE ARN</text>`,
 
     migration: () => `
-      <text x="40" y="36">E2E RUNTIME</text><text class="t-o" x="360" y="36" text-anchor="end">−70%</text>
+      <text x="40" y="36">E2E RUNTIME</text><text class="t-o" x="360" y="36" text-anchor="end">FASTER</text>
       <text class="t-w" x="40" y="84">KATALON</text>
       <rect x="40" y="94" width="320" height="24" rx="6" fill="rgba(255,255,255,.06)"/>
       <rect class="grow" x="40" y="94" width="320" height="24" rx="6" fill="rgba(255,255,255,.3)" style="--gd:.2s"/>
       <text class="t-o" x="40" y="156">PLAYWRIGHT</text>
       <rect x="40" y="166" width="320" height="24" rx="6" fill="none" stroke="rgba(255,255,255,.12)" stroke-dasharray="3 4"/>
       <rect class="grow" x="40" y="166" width="96" height="24" rx="6" fill="${O}" style="--gd:.8s"/>
-      <text x="40" y="232">LICENSE −$2,000 / YR</text><text x="360" y="232" text-anchor="end">LANES ∥</text>`,
+      <text x="40" y="232">ANALYZE → POC → MIGRATE</text><text x="360" y="232" text-anchor="end">PARALLEL</text>`,
 
     signature: () => {
       const steps = [[70, 'NONCE', '#'], [160, 'SIGN', '✎'], [250, 'VERIFY', '✓'], [340, 'BURN', '×']];
@@ -364,8 +364,8 @@
         <rect class="box-o" x="252" y="40" width="112" height="30" rx="8"/><text class="t-o" x="266" y="59">HIGH</text><circle cx="350" cy="55" r="3" fill="${O}" class="pulse"/>
         <rect class="box" x="252" y="80" width="112" height="30" rx="8"/><text class="t-w" x="266" y="99">MEDIUM</text>
         <rect class="box" x="252" y="120" width="112" height="30" rx="8"/><text x="266" y="139">LOW</text>
-        <text x="252" y="182">KR · VN LAWS</text><text class="t-w" x="252" y="198">718 ARTICLES</text>
-        <text class="t-o" x="252" y="230">RECALL 1.00</text>`;
+        <text x="252" y="182">KR · VN LAWS</text><text class="t-w" x="252" y="198">BY ARTICLE</text>
+        <text class="t-o" x="252" y="230">CITED SOURCE</text>`;
     },
 
     hub: () => {
