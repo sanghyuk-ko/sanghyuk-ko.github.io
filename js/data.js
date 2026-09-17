@@ -509,6 +509,6 @@ window.PORTFOLIO = {
   education: [
     { label: 'Education', title: '고려대학교 컴퓨터학과', sub: '심화전공 · 2020.03 입학 · 2027.02 졸업 예정' },
     { label: 'Certificates', title: 'SQLD · ADsP', sub: '2025.09 취득' },
-    { label: 'Language', title: 'OPIc AL · TOEIC 870', sub: '영어' },
+    { label: 'Language', title: 'OPIc AL', sub: '영어' },
   ],
 };
