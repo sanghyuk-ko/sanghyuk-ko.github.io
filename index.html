@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <!-- bump ?v= whenever css/js change, so a cached page never mixes old and new files -->
-  <link rel="stylesheet" href="css/style.css?v=2026091503">
+  <link rel="stylesheet" href="css/style.css?v=2026091701">
 </head>
 <body>
   <a class="skip-link" href="#work">프로젝트로 건너뛰기</a>
@@ -163,15 +163,23 @@
     <section class="section wrap" id="work">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Selected Work · <span id="workCount">10</span></p>
+          <p class="eyebrow">Selected Work · <span id="workCount">06</span></p>
           <h2 class="section-title" data-reveal-lines>
             <span class="line-mask"><span>규칙은 코드로,</span></span>
             <span class="line-mask"><span><em>결과는 숫자로.</em></span></span>
           </h2>
         </div>
-        <p class="section-note" data-reveal>블록체인과 컴플라이언스 프로젝트를 앞에 두었습니다. 카드를 누르면 문제 · 설계 결정 · 구조 · 결과를 담은 상세 페이지로 이동합니다.</p>
+        <p class="section-note" data-reveal>블록체인 · 컴플라이언스 · 금융 백엔드를 중심으로 고른 대표 프로젝트입니다. 카드를 누르면 문제 · 설계 결정 · 구조 · 결과를 담은 상세 페이지로 이동합니다.</p>
       </div>
       <div class="work-grid" id="workGrid"></div>
+
+      <div class="other">
+        <div class="other__head">
+          <p class="eyebrow">Other work</p>
+          <p class="other__note">해커톤 · 프로토타입 · 개인 프로젝트. 누르면 상세 페이지로 이동합니다.</p>
+        </div>
+        <ol class="other-list" id="otherList"></ol>
+      </div>
     </section>
 
     <!-- Experience -->
@@ -220,8 +228,8 @@
   </a>
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
-  <script src="js/data.js?v=2026091503" defer></script>
-  <script src="js/common.js?v=2026091503" defer></script>
-  <script src="js/home.js?v=2026091503" defer></script>
+  <script src="js/data.js?v=2026091701" defer></script>
+  <script src="js/common.js?v=2026091701" defer></script>
+  <script src="js/home.js?v=2026091701" defer></script>
 </body>
 </html>

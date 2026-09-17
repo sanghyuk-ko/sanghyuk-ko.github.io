@@ -448,6 +448,37 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
   .card__visual { position: relative; inset: auto; z-index: 0; height: 200px; padding: 0; margin: 0 -6px 14px; }
 }
 
+/* Other work — compact rows under the featured cards */
+.other { margin-top: clamp(64px, 8vw, 112px); }
+.other__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 18px; }
+.other__note { margin: 0; color: var(--muted); font-size: 14px; }
+.other-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.other-row {
+  position: relative; display: grid; grid-template-columns: 56px minmax(0, 1.1fr) minmax(0, 1.5fr) auto 44px;
+  align-items: center; gap: 8px 28px; padding: 24px 8px; border-bottom: 1px solid var(--line);
+  transition: background-color .4s, padding .6s var(--ease);
+}
+.other-row::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 100%; height: 1px; background: var(--orange); transform: scaleX(0); transform-origin: 0 50%; transition: transform .8s var(--ease); }
+.other-row:hover { background: rgba(255, 255, 255, .02); padding-left: 18px; }
+.other-row:hover::after { transform: scaleX(1); }
+.other-row__num { font: 500 12px/1 var(--font-mono); color: var(--muted); letter-spacing: .08em; }
+.other-row__title { font-weight: 600; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.35; letter-spacing: -.02em; transition: color .3s; }
+.other-row:hover .other-row__title { color: var(--orange); }
+.other-row__desc { color: var(--text-2); font-size: 14.5px; line-height: 1.55; }
+.other-row__meta { font: 500 11px/1.4 var(--font-mono); color: var(--muted); letter-spacing: .06em; white-space: nowrap; }
+.other-row__go {
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center;
+  transition: background-color .4s, border-color .4s, color .4s, transform .6s var(--ease);
+}
+.other-row:hover .other-row__go { background: var(--orange); border-color: var(--orange); color: #0a0a0a; transform: rotate(-45deg); }
+@media (max-width: 860px) {
+  .other-row { grid-template-columns: 36px minmax(0, 1fr) 40px; gap: 6px 14px; padding: 20px 0; }
+  .other-row:hover { padding-left: 0; }
+  .other-row__num { grid-row: span 3; align-self: start; padding-top: 6px; }
+  .other-row__title, .other-row__desc, .other-row__meta { grid-column: 2; }
+  .other-row__go { grid-column: 3; grid-row: 1 / span 3; }
+}
+
 /* ==========================================================================
    Visuals (inline SVG)
    ========================================================================== */

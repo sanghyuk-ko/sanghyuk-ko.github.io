@@ -212,23 +212,45 @@
   }
 
   function renderWork() {
+    const featured = D.projects.filter(p => p.featured);
+    const others = D.projects.filter(p => !p.featured);
+
     const grid = $('#workGrid');
-    if (!grid) return;
-    const total = D.projects.length;
-    grid.innerHTML = D.projects.map((p, i) => `
-      <a class="card span-${p.span || 4}" href="project.html?id=${encodeURIComponent(p.id)}"
-         data-transition="${PF.esc(`${PF.pad(i + 1)}|${p.title}`)}" data-spotlight data-cursor="VIEW" data-reveal style="--d:${((i % 3) * 0.07).toFixed(2)}s">
-        <div class="card__visual">${PF.visual(p.visual)}</div>
-        <span class="card__index">${PF.pad(i + 1)} / ${PF.pad(total)}</span>
-        <span class="card__tag">${PF.esc(p.category)}</span>
-        <p class="card__meta">${PF.esc(p.period)} · ${PF.esc(p.org)}</p>
-        <h3 class="card__title">${PF.esc(p.title)}</h3>
-        <p class="card__desc">${PF.esc(p.oneLiner)}</p>
-        <div class="chips">${p.stack.slice(0, 4).map(s => `<span class="chip">${PF.esc(s)}</span>`).join('')}</div>
-        <span class="card__go" aria-hidden="true">→</span>
-      </a>`).join('');
+    if (grid) {
+      grid.innerHTML = featured.map((p, i) => `
+        <a class="card span-${p.span || 6}" href="project.html?id=${encodeURIComponent(p.id)}"
+           data-transition="${PF.esc(`${PF.pad(i + 1)}|${p.title}`)}" data-spotlight data-cursor="VIEW" data-reveal style="--d:${((i % 2) * 0.08).toFixed(2)}s">
+          <div class="card__visual">${PF.visual(p.visual)}</div>
+          <span class="card__index">${PF.pad(i + 1)} / ${PF.pad(featured.length)}</span>
+          <span class="card__tag">${PF.esc(p.category)}</span>
+          <p class="card__meta">${PF.esc(p.period)} · ${PF.esc(p.org)}</p>
+          <h3 class="card__title">${PF.esc(p.title)}</h3>
+          <p class="card__desc">${PF.esc(p.oneLiner)}</p>
+          <div class="chips">${p.stack.slice(0, 4).map(s => `<span class="chip">${PF.esc(s)}</span>`).join('')}</div>
+          <span class="card__go" aria-hidden="true">→</span>
+        </a>`).join('');
+    }
+
+    // numbering continues after the featured cards, matching the detail pages (07 / 10 …)
+    const list = $('#otherList');
+    if (list) {
+      list.innerHTML = others.map((p, i) => {
+        const n = PF.pad(featured.length + i + 1);
+        return `
+        <li data-reveal style="--d:${(i * 0.05).toFixed(2)}s">
+          <a class="other-row" href="project.html?id=${encodeURIComponent(p.id)}" data-transition="${PF.esc(`${n}|${p.title}`)}" data-cursor="VIEW">
+            <span class="other-row__num">${n}</span>
+            <span class="other-row__title">${PF.esc(p.title)}</span>
+            <span class="other-row__desc">${PF.esc(p.short || p.category)}</span>
+            <span class="other-row__meta">${PF.esc(p.period)} · ${PF.esc(p.org)}</span>
+            <span class="other-row__go" aria-hidden="true">→</span>
+          </a>
+        </li>`;
+      }).join('');
+    }
+
     const count = $('#workCount');
-    if (count) count.textContent = PF.pad(total);
+    if (count) count.textContent = PF.pad(featured.length);
   }
 
   function renderExperience() {
