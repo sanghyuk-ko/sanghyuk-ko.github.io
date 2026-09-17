@@ -1,4 +1,5 @@
-/* Project detail page — rendered from PORTFOLIO.projects by ?id= */
+/* Project detail page — rendered from PORTFOLIO.projects by ?id=
+   Layout: hero → one-glance summary (problem → approach → result) → approach cards → structure → code → lesson */
 (() => {
   const PF = window.PF;
   const D = window.PORTFOLIO;
@@ -26,28 +27,34 @@
       <div class="metric__l">${R(m.label)}</div>
     </div>`;
 
+  const s = p.snapshot;
+  const snapCol = (n, label, text, extra = '') => `
+    <article class="snap__col${extra}"><span class="snap__k"><b>${n}</b>${label}</span><p>${R(text)}</p></article>`;
+  const snapshot = `
+    <section class="wrap p-snap" aria-label="한눈에 보기">
+      <div class="snap" data-reveal>
+        ${snapCol('01', '문제', s.problem)}
+        <span class="snap__arrow" aria-hidden="true"></span>
+        ${snapCol('02', '해결 방향', s.approach)}
+        <span class="snap__arrow" aria-hidden="true"></span>
+        ${snapCol('03', '결과', s.result, ' is-result')}
+      </div>
+      ${p.metrics && p.metrics.length ? `<div class="metrics" data-reveal>${p.metrics.map(metric).join('')}</div>` : ''}
+    </section>`;
+
   const sections = [];
   const add = (title, sub, body) => sections.push({ title, sub, body });
 
-  add('개요', 'Overview', `<div class="prose" data-reveal>${p.overview.map(t => `<p>${R(t)}</p>`).join('')}</div>`);
-
-  add('문제', 'Problem', `<ol class="problem-list">${p.problem.map(t => `<li data-reveal>${R(t)}</li>`).join('')}</ol>`);
-
-  add('설계 결정', 'Decisions', `<div class="decisions">${p.decisions.map(d => `
-    <article class="decision" data-reveal>
-      <h3>${R(d.title)}</h3>
-      <p>${R(d.body)}</p>
-      ${d.why ? `<span class="why">${R(d.why)}</span>` : ''}
-    </article>`).join('')}</div>`);
+  add('해결 방향', 'Approach', `<div class="approach">${p.decisions.map(d => `
+    <article class="approach__item" data-reveal><h3>${R(d.title)}</h3><p>${R(d.body)}</p></article>`).join('')}</div>`);
 
   add('구조', 'Architecture', `
     <div class="flow" data-reveal>${p.flow.map((f, i) => `${i ? '<span class="flow__arrow" aria-hidden="true"></span>' : ''}
       <div class="flow__node${f.key ? ' is-key' : ''}"><span class="k">${E(f.k)}</span><b>${E(f.b)}</b>${f.s ? `<span>${E(f.s)}</span>` : ''}</div>`).join('')}
-    </div>
-    ${p.flowNote ? `<p class="note">${R(p.flowNote)}</p>` : ''}`);
+    </div>`);
 
   if (p.code && p.code.length) {
-    add('핵심 구현', 'Code', `<div class="code-stack">${p.code.map(c => `
+    add('핵심 코드', 'Code', `<div class="code-stack">${p.code.map(c => `
       <figure class="code" data-reveal style="margin:0">
         <figcaption class="code__head"><span class="code__dots" aria-hidden="true"><i></i><i></i><i></i></span><b>${E(c.file)}</b></figcaption>
         <pre><code>${PF.highlight(c.snippet)}</code></pre>
@@ -55,13 +62,14 @@
       </figure>`).join('')}</div>`);
   }
 
-  add('결과', 'Result', `
-    <div class="results">${p.results.map(r => `<div class="result" data-reveal><b>${R(r.b)}</b>${R(r.t)}</div>`).join('')}</div>
-    ${p.note ? `<p class="note">${R(p.note)}</p>` : ''}
-    ${p.links && p.links.length ? `<div class="p-links">${p.links.map(l => `<a class="btn" href="${E(l.url)}" target="_blank" rel="noopener">${E(l.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>` : ''}`);
-
-  if (p.lessons && p.lessons.length) {
-    add('회고', 'Retrospective', `<ul class="lessons">${p.lessons.map(t => `<li data-reveal>${R(t)}</li>`).join('')}</ul>`);
+  const links = p.links && p.links.length
+    ? `<div class="p-links">${p.links.map(l => `<a class="btn" href="${E(l.url)}" target="_blank" rel="noopener">${E(l.label)} <span aria-hidden="true">↗</span></a>`).join('')}</div>`
+    : '';
+  if (p.lesson || p.note || links) {
+    add(p.lesson ? '배운 점' : '참고', p.lesson ? 'Lesson' : 'Note', `
+      ${p.lesson ? `<blockquote class="lesson" data-reveal>${R(p.lesson)}</blockquote>` : ''}
+      ${p.note ? `<p class="note">${R(p.note)}</p>` : ''}
+      ${links}`);
   }
 
   main.innerHTML = `
@@ -78,14 +86,12 @@
       </div>
     </header>
 
-    <section class="wrap" aria-label="핵심 수치">
-      <div class="metrics" data-reveal>${p.metrics.map(metric).join('')}</div>
-    </section>
+    ${snapshot}
 
-    <div class="wrap">${sections.map((s, i) => `
+    <div class="wrap">${sections.map((sec, i) => `
       <section class="p-section">
-        <div class="p-section__label"><span class="num">${pad(i + 1)} — ${E(s.sub)}</span><h2>${E(s.title)}</h2></div>
-        <div>${s.body}</div>
+        <div class="p-section__label"><span class="num">${pad(i + 1)} — ${E(sec.sub)}</span><h2>${E(sec.title)}</h2></div>
+        <div>${sec.body}</div>
       </section>`).join('')}
     </div>
 
